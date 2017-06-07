@@ -1,9 +1,6 @@
-# Particula "Items-cualidades"
+# Particula "Owl-preview"
 
-Partícula para Gantry 5 que te permite incluir Items de elementos con diferentes características y diseños, ofrenciendo al mismo tiempo múltiples opciones de configuración.
-
-![preview-items-cualidades](https://cloud.githubusercontent.com/assets/9434043/24688531/29dd57be-1986-11e7-8b81-628f2aa0444a.png)
-![Diseño 2](https://cloud.githubusercontent.com/assets/9434043/24688619/ab9dd5a8-1986-11e7-921a-6d01d6eeaad4.png)
+Partícula para Gantry 5 que te permite incluir un Slider de imágenes con un título.
 
 Instalación
 -----------
@@ -12,17 +9,16 @@ No hemos incluido un instalador ya que deseamos que esta partícula pueda ser us
 El modo de instalación es muy sencillo:
 
 + Crear la carpeta "particles" dentro de tu carpeta "custom" en tu plantilla Gantry. Ejem: g5_hydrogen/custom/particles
-+ Cópie los archivos items-cualidades.html.twig y items-cualidades.yaml dentro de la carpeta "particle". Ejem: g5_hydrogen/custom/particles
-+ Cópie el archivo scss/_items-cualidades.scss dentro de tu carpeta "scss". Ejem: g5_hydrogen/custom/scss/_items-cualidades.scss
++ Cópie los archivos owl-preview.html.twig y owl-preview.yaml dentro de la carpeta "particle". Ejem: g5_hydrogen/custom/particles
++ Cópie el archivo scss/_owl-preview.scss dentro de tu carpeta "scss". Ejem: g5_hydrogen/custom/scss/_owl-preview.scss
 + Llame al archivo desde tu custom.scss colocando la siguiente linea al comienzo: 
   
-/* Estilos partícula Encabezado */
-  
-  @import "items-cualidades";
+/* Estilos partícula Owl-preview */  
+  @import "owl-preview";
 
 Modo de uso
 -----------
-+ Desde el Layout Manager encontrarás la partícula con el nombre "Items cualidades". 
++ Desde el Layout Manager encontrarás la partícula con el nombre "Owl-preview". 
 + Arrástrala a tu  diseño y configúrala.
 
 Saludos

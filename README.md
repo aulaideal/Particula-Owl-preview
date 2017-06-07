@@ -1,6 +1,7 @@
 # Particula "Owl-preview"
 
 Partícula para Gantry 5 que te permite incluir un Slider de imágenes con un título.
+![particula-owl-preview](https://user-images.githubusercontent.com/9434043/26897702-07b20d52-4b8f-11e7-8011-2223f09ed8cb.png)
 
 Instalación
 -----------

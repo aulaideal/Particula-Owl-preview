@@ -1,0 +1,113 @@
+/*-------------------------
+Estilos personalizados
+---------------------------*/
+
+.g-owlcarousel-preview {
+    position: relative;
+    display: block;
+
+    .g-owlcarousel {
+        .owl-stage {
+            .owl-item {
+                .item {
+                    @include display(flex);
+                    @include flex-flow(wrap);
+
+                    .preview-image {
+                        @include flex(50% 1);
+
+                        .preview-text {
+                            @include display(flex);
+                            @include align-items(center);
+                            @include justify-content(center);
+                            @include flex-direction(column);
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+                            top: 0;
+                            left: 0;
+                            color: $white;
+
+                            .item-overlay-title {
+                                font-size: $core-font-size + 8.75;
+                                font-weight: $font-weight-ultrabold;
+
+                                @include breakpoint(tablet-range) {
+                                    font-size: $core-font-size + 5.75;
+                                }
+
+                                @include breakpoint(mobile-only) {
+                                    font-size: $core-font-size + 2.75;
+                                    margin-top: -1rem;
+                                }
+                            }
+
+                            .button {
+                                background: transparent;
+                                text-decoration: none;
+                                border: 3px solid $white;
+                                font-size: $core-font-size * 2;
+                                @include breakpoint(mobile-only) {
+                                    font-size: 1rem;
+                                    margin-bottom: 2rem;
+                                }
+
+                                &:hover {
+                                    border-color: $accent-color-1;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // Prev & Next Controls
+        .owl-dots {
+            @include display(flex);
+            @include align-items(center);
+            @include justify-content(center);
+            position: absolute;
+            bottom: 1.2rem;
+            width: 100%;
+
+            @include breakpoint(mobile-only) {
+                bottom: 1rem;
+            }
+
+            .owl-dot {
+                @include display(flex);
+                @include align-items(center);
+                @include justify-content(center);
+                @include flex-direction(column);
+                width: 28px;
+                height: 28px;
+                background: transparent;
+                border: 5px solid $white;
+                border-radius: 100%;
+                margin: 0 0.6rem;
+              
+                transition: all 0.2s ease-out;
+
+                @include breakpoint(mobile-only) {
+                    width: 20px;
+                    height: 20px;
+                    border: 3px solid $white;
+                    margin: 0 0.3rem;
+                }
+
+                &.active {
+                    background: transparent;
+
+                    span {
+                        display: block;
+                        width: 8px;
+                        height: 8px;
+                        border-radius: 100%;
+                        background: $white;
+                    }
+                }
+            }
+        }
+    }
+}

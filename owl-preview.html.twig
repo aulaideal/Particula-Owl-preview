@@ -1,0 +1,77 @@
+{% extends '@nucleus/partials/particle.html.twig' %}
+
+{% block particle %}
+    {% block layout %}
+
+        <div class="{{ particle.class|e }} g-owlcarousel-preview g-owlcarousel-{{ particle.displayitems }}-items">
+            {% if particle.title %}
+                <h3 class="g-title">
+                    {{ particle.title|raw }}
+                </h3>
+            {% endif %}
+           
+            <div id="g-owlcarousel-{{ id }}" class="g-owlcarousel owl-carousel g-owlcarousel-fullwidth">
+
+                {% for item in particle.items %}
+                    <div class="item">
+                        <div class="preview-image">
+                            {% if item.image %}<img {% if particle.lazyload %}class="owl-lazy" data-src="{{ url(item.image)|e }}"{% else %}src="{{ url(item.image)|e }}"{% endif %} alt="{{ item.title|e }}" />{% endif %}
+                            <div class="preview-text">
+                                {% if item.title %}<div class="item-overlay-title">{{ item.title|e }}</div>{% endif %}
+                                {% if item.link %}
+                                    <div class="g-owlcarousel-item-link">
+                                        <a target="{{ item.buttontarget|default('_self')|e }}" class="g-owlcarousel-item-button button {{ item.buttonclass|e }}" href="{{ item.link|e }}">
+                                            {{ item.linktext|raw }}
+                                        </a>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+
+    {% endblock %}
+{% endblock %}
+
+
+{% set inline_js %}
+    jQuery(window).load(function() {
+        var owl{{ id|replace({'-':'_'}) }} = jQuery('#g-owlcarousel-{{ id }}');
+        owl{{ id|replace({'-':'_'}) }}.owlCarousel({
+        items: 1,
+        {% if particle.lazyload %}
+        lazyLoad: true,
+        {% endif %}
+        rtl: {% if gantry.page.direction == 'rtl' %}true{% else %}false{% endif %},
+        {% if particle.animateOut and particle.animateOut != 'default' %}
+        animateOut: '{{ particle.animateOut|default('fadeOut')|e }}',
+        {% endif %}
+        {% if particle.animateIn and particle.animateIn != 'default' %}
+        animateIn: '{{ particle.animateIn|default('fadeIn')|e }}',
+        {% endif %}
+        nav: false,
+        {% if particle.dots == 'enabled' %}
+        dots: true,
+        {% else %}
+        dots: false,
+        {% endif %}
+        loop: false,
+        {% if particle.autoplay == 'enabled' %}
+        autoplay: true,
+        autoplayTimeout: {{ particle.autoplaySpeed|default('5000') }},
+        {% if particle.pauseOnHover == 'enabled' %}
+            autoplayHoverPause: true,
+        {% else %}
+            autoplayHoverPause: false,
+        {% endif %}
+        {% else %}
+        autoplay: false,
+        {% endif %}        
+        })
+    });
+{% endset %}
+
+{% do gantry.document.addInlineScript( inline_js, 10, 'footer') %}

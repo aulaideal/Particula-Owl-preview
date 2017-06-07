@@ -1,0 +1,211 @@
+name: Owl Preview
+description: Muestra un Slide con una imagen de fondo, basado en OwlCarousel.
+type: particle
+icon: fa-sliders
+
+form:
+  overrideable: false
+  fields:
+    enabled:
+      type: input.checkbox
+      label: Enabled
+      description: Globally enable particle.
+      default: true
+
+    class:
+      type: input.selectize
+      label: Clases CSS
+      description: Clase CSS para la partícula. 
+
+
+    lazyload:
+      type: select.select
+      label: Lazy Loading
+      description: ​Lazy loading es una técnica para cargar imágenes cuando se necesita en lugar de todas a la vez.
+      default: enabled
+      options:
+        enabled: Habilitar
+        disabled: Deshabilitar
+
+    title:
+      type: input.text
+      label: Título
+      description: Ingrese un título para la partícula.
+      placeholder: Ingrese un título
+
+    animateIn:
+      type: select.select
+      label: Efecto de entrada
+      description: Define el efecto de entrada.
+      default: fadeIn
+      options:
+        default: default
+        bounce: bounce
+        flash: flash
+        pulse: pulse
+        rubberBand: rubberBand
+        shake: shake
+        swing: swing
+        tada: tada
+        wobble: wobble
+        jello: jello
+        bounceIn: bounceIn
+        bounceInDown: bounceInDown
+        bounceInLeft: bounceInLeft
+        bounceInRight: bounceInRight
+        bounceInUp: bounceInUp
+        fadeIn: fadeIn
+        fadeInDown: fadeInDown
+        fadeInDownBig: fadeInDownBig
+        fadeInLeft: fadeInLeft
+        fadeInLeftBig: fadeInLeftBig
+        fadeInRight: fadeInRight
+        fadeInRightBig: fadeInRightBig
+        fadeInUp: fadeInUp
+        fadeInUpBig: fadeInUpBig
+        flip: flip
+        flipInX: flipInX
+        flipInY: flipInY
+        lightSpeedIn: lightSpeedIn
+        lightSpeedOut: lightSpeedOut
+        rotateIn: rotateIn
+        rotateInDownLeft: rotateInDownLeft
+        rotateInDownRight: rotateInDownRight
+        rotateInUpLeft: rotateInUpLeft
+        rotateInUpRight: rotateInUpRight
+        slideInUp: slideInUp
+        slideInDown: slideInDown
+        slideInLeft: slideInLeft
+        slideInRight: slideInRight       
+        zoomIn: zoomIn
+        zoomInDown: zoomInDown
+        zoomInLeft: zoomInLeft
+        zoomInRight: zoomInRight
+        zoomInUp: zoomInUp
+        hinge: hinge
+        rollIn: rollIn
+        rollOut: rollOut
+
+    animateOut:
+      type: select.select
+      label: Efecto de salida
+      description: Define el efecto de salida.
+      default: fadeOut
+      options:
+        default: default
+        bounce: bounce
+        flash: flash
+        pulse: pulse
+        rubberBand: rubberBand
+        shake: shake
+        swing: swing
+        tada: tada
+        wobble: wobble
+        jello: jello
+        bounceOut: bounceOut
+        bounceOutDown: bounceOutDown
+        bounceOutLeft: bounceOutLeft
+        bounceOutRight: bounceOutRight
+        bounceOutUp: bounceOutUp
+        fadeOut: fadeOut
+        fadeOutDown: fadeOutDown
+        fadeOutDownBig: fadeOutDownBig
+        fadeOutLeft: fadeOutLeft
+        fadeOutLeftBig: fadeOutLeftBig
+        fadeOutRight: fadeOutRight
+        fadeOutRightBig: fadeOutRightBig
+        fadeOutUp: fadeOutUp
+        fadeOutUpBig: fadeOutUpBig
+        flip: flip
+        flipOutX: flipOutX
+        flipOutY: flipOutY
+        lightSpeedOut: lightSpeedOut       
+        rotateOut: rotateOut
+        rotateOutDownLeft: rotateOutDownLeft
+        rotateOutDownRight: rotateOutDownRight
+        rotateOutUpLeft: rotateOutUpLeft
+        rotateOutUpRight: rotateOutUpRight
+        slideOutUp: slideOutUp
+        slideOutDown: slideOutDown
+        slideOutLeft: slideOutLeft
+        slideOutRight: slideOutRight
+        zoomOut: zoomOut
+        zoomOutDown: zoomOutDown
+        zoomOutLeft: zoomOutLeft
+        zoomOutRight: zoomOutRight
+        zoomOutUp: zoomOutUp
+        hinge: hinge
+        rollIn: rollIn
+        rollOut: rollOut
+
+    dots:
+      type: select.select
+      label: Botones de navegación
+      description: Habilitar o desactivar los Botones de navegación.
+      default: enabled
+      options:
+        enabled: Habilitar
+        disabled: Deshabilitar
+
+    autoplay:
+      type: select.select
+      label: Autoplay
+      description: Habilitar o deshabilitar el  Autoplay.
+      default: disabled
+      options:
+        enabled: Habilitar
+        disabled: Deshabilitar
+
+    autoplaySpeed:
+      type: input.text
+      label: Velocidad del Autoplay
+      description: Define la velocidad del Autoplay (en milisegundos).
+      placeholder: 5000
+
+    pauseOnHover:
+      type: select.select
+      label: Pausar on Hover
+      description: Pausa el slideshow cuando el mouse este sobre el slider.
+      default: enabled
+      options:
+        enabled: Habilitar
+        disabled: Deshabilitar
+
+    items:
+      type: collection.list
+      array: true
+      label: Items
+      description: Create cada item a mostrar.
+      value: name
+      ajax: true
+
+      fields:
+        .image:
+          type: input.imagepicker
+          label: Imagen
+          description: Seleccione la imagen de fondo.
+        .title:
+          type: input.text
+          label: Título
+          description: Ingrese un título.
+        .link:
+          type: input.text
+          label: Enlace
+          description: Ingrese en enlace de destino.
+        .linktext:
+          type: input.text
+          label: Texto del enlace
+          description: Ingrese el texto del enlace.
+        .buttontarget:
+          type: select.selectize
+          label: Ventana de destino
+          description: Define la ventana de destino.
+          placeholder: 'Select...'
+          default: _self
+          options:
+              _self: Misma ventana
+              _blank: Nueva ventana
+        .buttonclass:
+          type: input.text
+          label: Clase CSS del botón
+          description: Ingrese una clase CSS para el botón.
